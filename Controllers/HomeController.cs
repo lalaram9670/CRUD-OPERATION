@@ -45,7 +45,7 @@ namespace CRUD_OPERATION.Controllers
         [HttpGet]
         public ActionResult EditProduct(int id)
         {
-            string cmd = "Select * from ProductId where ProductId='" + id + "'";
+            string cmd = "Select * from Tbl_Product where ProductId='" + id + "'";
             DataTable dt = dm.ExecuteMyQuery(cmd);
             Product p = new Product();
             if (dt.Rows.Count > 0)
