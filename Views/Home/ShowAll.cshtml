@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CRUD_OPERATION.Models.Product>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowAll</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "AddNew")
+    </p>
+    <p>@TempData["Message"]</p>
+    <table class="table" border="1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CotegoryName)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Date_of_Reg)
+            </th>
+            <th>
+                Manage
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CotegoryName)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_of_Reg)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditProduct", new { id = item.ProductId }) |
+                    @Html.ActionLink("Delete", "DeleteProduct", new { id = item.ProductId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
+
